@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Knob demo</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/jquery-knob/js/jquery.knob.js"></script>
+        <script src="scripts/controllers/example.js"></script>
+        <script src="../src/angular-knob.js"></script>
+        <script></script>
+        <style>
+            body{
+              padding: 0;
+              margin: 0px 50px;
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-weight: 300;
+              text-rendering: optimizelegibility;
+            }
+            p{font-size: 30px; line-height: 30px}
+            div.demo{text-align: center; width: 280px; float: left}
+            div.demo > p{font-size: 20px}
+        </style>
+    </head>
+    <body ng-app='knobApp'>
+        <div ng-controller="exampleCtrl">
+            <div>
+                <h1>{{ hello }}</h1>
+                <code>{{ knobOptions }}</code>
+                <code>{{ data }}</code>
+                <hr>
+                <knob knob-data="data" knob-options="knobOptions"></knob>
+            </div>
+        </div>
+    </body>
+</html>
