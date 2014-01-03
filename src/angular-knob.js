@@ -7,13 +7,13 @@ angular.module('ui.knob', [])
       transclude : true,
       link: function (scope, elem, attrs) {
 
+        scope.knob = scope.$eval(attrs.knobData);
+
         var renderKnob = function(){
 
           var opts = {};
-          var data = scope.$eval(attrs.knobData);
           opts = scope.$eval(attrs.knobOptions);
           $elem = $(elem);
-          scope.knob = data;
           $elem.knob(opts);
 
         };
