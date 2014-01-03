@@ -3,6 +3,8 @@ angular.module('knobApp', ['ui.knob'])
 angular.module('knobApp')
   .controller('exampleCtrl', ['$scope', function($scope){
 
+    $scope.max = 1000;
+
     $scope.data = 30;
 
     $scope.knobOptions = {

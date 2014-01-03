@@ -25,6 +25,8 @@ angular.module('knobApp')
 
     $scope.data = 30;
 
+    $scope.max = 200;
+
     $scope.knobOptions = {
       'width':100,
       'displayInput': false
@@ -37,6 +39,7 @@ angular.module('knobApp')
 <body ng-app='knobApp'>
   <div ng-controller="exampleCtrl">
       <knob knob-data="data" knob-options="knobOptions"></knob>
+      <knob knob-data="data" knob-max='max' knob-options="knobOptions"></knob>
   </div>
 </body>
 ```

@@ -11,8 +11,22 @@ angular.module('ui.knob', [])
 
         var renderKnob = function(){
 
-          var opts = {};
-          opts = scope.$eval(attrs.knobOptions);
+          var opts = {}; 
+          if(!angular.isUndefined(attrs.knobOptions)){
+            opts = scope.$eval(attrs.knobOptions);
+          }
+
+          var max = 100;
+          if(!angular.isUndefined(attrs.knobMax)){
+            var max = scope.$eval(attrs.knobMax);
+            if(!angular.isUndefined(max)){
+              console.log(max);
+              opts.max = max;
+            }else{
+              console.log('max is undefined');
+            }
+          }
+          
           $elem = $(elem);
           $elem.knob(opts);
 
@@ -20,7 +34,7 @@ angular.module('ui.knob', [])
 
         scope.$watch(attrs.knobData, function () {
            renderKnob();
-        }, true);
+        });
 
         scope.$watch(attrs.knobOptions, function () {
           renderKnob();
