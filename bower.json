@@ -6,7 +6,7 @@
     "Moo <yunl.zheng@gmail.com>"
   ],
   "description": "jquery kanb directive",
-  "main": "ng-kanb.js",
+  "main": "./src/ng-kanb.js",
   "keywords": [
     "jquery",
     "kanb",
