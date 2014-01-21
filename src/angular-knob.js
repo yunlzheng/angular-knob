@@ -32,6 +32,8 @@ angular.module('ui.knob', [])
           }
           
           $elem = $(elem);
+          $elem.val(scope.knob);
+          $elem.change();
           $elem.knob(opts);
 
         };
