@@ -38,8 +38,19 @@ angular.module('ui.knob', [])
 
         };
 
+        var updateMax = function updateMax() {
+          var max = scope.$eval(attrs.knobMax);
+          $elem.trigger('configure', {
+            'max': max
+          }).trigger('change');
+        }
+
         scope.$watch(attrs.knobData, function () {
            renderKnob();
+        });
+
+        scope.$watch(attrs.knobMax, function() {
+          updateMax();
         });
 
         scope.$watch(attrs.knobOptions, function () {
