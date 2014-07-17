@@ -58,6 +58,7 @@ angular.module('ui.knob', [])
         });
 
         scope.$watch(attrs.knobOptions, function () {
+          $elem.trigger('configure',scope.$eval(attrs.knobOptions));
           renderKnob();
         }, true);
 
