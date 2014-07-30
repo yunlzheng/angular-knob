@@ -37,6 +37,29 @@ angular.module('ui.knob', [])
           $elem.knob(opts);
 
         };
+        
+        var updateKnob = function(){
+          
+          scope.knob = scope.$eval(attrs.knobData);
+
+          var opts = {};
+          if(!angular.isUndefined(attrs.knobOptions)){
+            opts = scope.$eval(attrs.knobOptions);
+          }
+
+          if(!angular.isUndefined(attrs.knobMax)){
+            var max = scope.$eval(attrs.knobMax);
+            if(!angular.isUndefined(max)){
+
+              opts.max = max;
+
+            }
+          }
+
+          $elem = $(elem);
+          $elem.val(scope.knob);
+          $elem.trigger('configure', opts).trigger('change');
+        };
 
         var updateMax = function updateMax() {
           var max = scope.$eval(attrs.knobMax);
@@ -58,7 +81,7 @@ angular.module('ui.knob', [])
         });
 
         scope.$watch(attrs.knobOptions, function () {
-          renderKnob();
+          updateKnob();
         }, true);
 
       }
