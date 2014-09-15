@@ -38,7 +38,7 @@ angular.module('ui.knob', [])
           var max = scope.$eval(attrs.knobMax);
           var val = scope.$eval(attrs.knobData);
           $elem.trigger('configure', {
-            'max': parseInt(max)
+            'max': parseInt(max, 10)
           }).trigger('change');
           $elem.val(val).change();
         };
