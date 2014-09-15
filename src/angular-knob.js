@@ -30,27 +30,22 @@ angular.module('ui.knob', [])
             
             }
           }
-          
-          $elem = $(elem);
-          $elem.val(scope.knob);
-          $elem.change();
-          $elem.knob(opts);
-
+          angular.element(elem).knob(opts);
         };
 
         var updateMax = function updateMax() {
           var max = scope.$eval(attrs.knobMax);
           var val = scope.$eval(attrs.knobData);
-          $elem = $(elem);
+          var $elem = angular.element(elem);
           $elem.trigger('configure', {
             'max': parseInt(max)
           }).trigger('change');
-          $elem.val(val);
-          $elem.change();
-        }
+          $elem.val(val).change();
+        };
 
         scope.$watch(attrs.knobData, function () {
-           renderKnob();
+          scope.knob = scope.$eval(attrs.knobData);
+          angular.element(elem).val(scope.knob).change();
         });
 
         scope.$watch(attrs.knobMax, function() {
