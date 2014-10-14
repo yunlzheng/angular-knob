@@ -3,7 +3,7 @@ angular.module('knobApp', [
 ]);
 
 angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) {
-	
+
 	$scope.data = 30;
 
 	$scope.knobOptions = {
