@@ -1,69 +1,63 @@
 angular.module('ui.knob', [])
-  .directive('knob', function ($parse) {
-    return {
-      restrict: 'EACM',
-      template: function(elem, attrs){
 
-        return '<input value="{{ knob }}">';
+    .directive('knob', function () {
+        return {
+            restrict: 'EACM',
+            template: function (elem, attrs) {
 
-      },
-      replace: true,
-      scope: true,
-      link: function (scope, elem, attrs) {
+                return '<input value="{{ knob }}">';
 
-        scope.knob = scope.$eval(attrs.knobData);
-        var $elem = angular.element(elem);
-        
-        var $setModelValue = $parse(attrs.ngModel).assign;
+            },
+            replace: true,
+            scope: true,
+            link: function (scope, elem, attrs) {
 
-        var renderKnob = function(){
+                var knob = scope.$eval(attrs.knobData);
+                var $elem = angular.element(elem);
 
-          scope.knob = scope.$eval(attrs.knobData);
+                var renderKnob = function () {
+                    knob = scope.$eval(attrs.knobData);
 
-          var opts = {};
-          opts.change = function(v){
-            $setModelValue(scope, v);
-            scope.$apply();
-          }
-          
-          if(!angular.isUndefined(attrs.knobOptions)){
-            opts = scope.$eval(attrs.knobOptions);
-          }
+                    var opts = {};
+                    if (!angular.isUndefined(attrs.knobOptions)) {
+                        opts = scope.$eval(attrs.knobOptions);
+                    }
 
-          if(!angular.isUndefined(attrs.knobMax)){
-            var max = scope.$eval(attrs.knobMax);
-            if(!angular.isUndefined(max)){
+                    if (!angular.isUndefined(attrs.knobMax)) {
+                        var max = scope.$eval(attrs.knobMax);
+                        if (!angular.isUndefined(max)) {
 
-              opts.max = max;
-            
+                            opts.max = max;
+
+                        }
+                    }
+                    angular.element(elem).knob(opts);
+                };
+
+                var updateMax = function updateMax() {
+                    var max = scope.$eval(attrs.knobMax);
+                    var val = scope.$eval(attrs.knobData);
+                    $elem.trigger('configure', {
+                        'max': parseInt(max, 10)
+                    }).trigger('change');
+                    $elem.val(val).change();
+                };
+
+                scope.$watch(attrs.knobData, function () {
+                    knob = scope.$eval(attrs.knobData);
+                    $elem.val(knob).change();
+                });
+
+                scope.$watch(attrs.knobMax, function () {
+                    updateMax();
+                });
+
+                scope.$watch(attrs.knobOptions, function () {
+                    elem.trigger('configure', scope.$eval(attrs.knobOptions));
+                    renderKnob();
+                }, true);
+
             }
-          }
-          angular.element(elem).knob(opts);
+
         };
-
-        var updateMax = function updateMax() {
-          var max = scope.$eval(attrs.knobMax);
-          var val = scope.$eval(attrs.knobData);
-          $elem.trigger('configure', {
-            'max': parseInt(max, 10)
-          }).trigger('change');
-          $elem.val(val).change();
-        };
-
-        scope.$watch(attrs.knobData, function () {
-          scope.knob = scope.$eval(attrs.knobData);
-          $elem.val(scope.knob).change();
-        });
-
-        scope.$watch(attrs.knobMax, function() {
-          updateMax();
-        });
-
-        scope.$watch(attrs.knobOptions, function () {
-          elem.trigger('configure',scope.$eval(attrs.knobOptions));
-          renderKnob();
-        }, true);
-
-      }
-    };
-  });
+    });
