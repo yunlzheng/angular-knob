@@ -1,15 +1,15 @@
 angular.module('ui.knob', []).directive('knob', function() {
-
     return {
         restrict: 'EA',
         replace: true,
         template: '<input value="{{ knobData }}"/>',
+        reuire: 'knobData',
         scope: {
-            knobOptions: '=',
-            knobData: '='
+            knobData: '=',
+            knobOptions: '&'
         },
-        link: function($scope, $element) {
-            var knobInit = $scope.knobOptions || {};
+        link: function($scope, $element, $attrs) {
+            var knobInit = $scope.knobOptions() || {};
             knobInit.change = setKnobData;
 
             function setKnobData (value) {
@@ -24,5 +24,5 @@ angular.module('ui.knob', []).directive('knob', function() {
 
             $($element).val($scope.knobData).knob(knobInit);
         }
-    }
+    };
 });
