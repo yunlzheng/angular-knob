@@ -1,5 +1,5 @@
 angular.module('ui.knob', [])
-  .directive('knob', function () {
+  .directive('knob', function ($parse) {
     return {
       restrict: 'EACM',
       template: function(elem, attrs){
@@ -13,12 +13,19 @@ angular.module('ui.knob', [])
 
         scope.knob = scope.$eval(attrs.knobData);
         var $elem = angular.element(elem);
+        
+        var $setModelValue = $parse(attrs.ngModel).assign;
 
         var renderKnob = function(){
 
           scope.knob = scope.$eval(attrs.knobData);
 
-          var opts = {}; 
+          var opts = {};
+          opts.change = function(v){
+            $setModelValue(scope, v);
+            scope.$apply();
+          }
+          
           if(!angular.isUndefined(attrs.knobOptions)){
             opts = scope.$eval(attrs.knobOptions);
           }
