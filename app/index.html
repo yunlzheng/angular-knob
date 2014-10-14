@@ -1,156 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Angular jQuery Knob demo</title>
-        <script src="../bower_components/jquery/jquery.min.js"></script>
-        <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/jquery-knob/js/jquery.knob.js"></script>
+<head>
+    <title>Angular jQuery Knob demo</title>
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery-knob/js/jquery.knob.js"></script>
 
-        <script src="../src/angular-knob.js"></script>
-        
-        <script src="scripts/controllers/example.js"></script>
-        <script></script>
-        <style>
-            body{
-              padding: 0;
-              margin: 0px 50px;
-              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-              font-weight: 300;
-              text-rendering: optimizelegibility;
-            }
-            p{font-size: 30px; line-height: 30px}
-            div.demo{text-align: center; width: 280px; float: left}
-            div.demo > p{font-size: 20px}
-        </style>
-        
-    </head>
-    <body ng-app='knobApp'>
-        <div ng-controller="exampleCtrl">
-        <div style="width:100%;font-size:40px;letter-spacing:-8px;line-height:40px;">
-            <h1>Angular jQuery Knob</h1>
-        </div>
-        <div>
-            <p>Nice, downward compatible, touchable, jQuery dial.</p>
-            <p style="font-size: 20px">* implemented interactions : mouse click and wheel mouse, keyboard (on focus) and fingers (touch events)</p>
-        </div>
-        <div class="demo">
-            <p>&#215; Disable display input</p>
-            <pre>
-data-width="100"
-data-displayInput=false
-            </pre>
-            <knob knob-data="data" knob-max='max' knob-options="knobOptions"></knob>
-        </div>
-        <div class="demo">
-            <p>&#215; 'cursor' mode</p>
-            <pre>
-data-width="150"
-data-cursor=true
-data-thickness=.3
-data-fgColor="#222222"
-            </pre>
-           <knob knob-data="data2" knob-max='max' knob-options="options2"></knob>
-        </div>
-        <div class="demo" >
-            <p>&#215; Display previous value</p>
-            <pre>
-data-displayPrevious=true
-data-min="-100"
-            </pre>
-            <knob knob-data="data" knob-options="options3"></knob>
-        </div>
-        <div style="clear:both"></div>
-        <div class="demo">
-            <p>&#215; Angle offset</p>
-            <pre>
-data-angleOffset=90
-data-linecap=round
-            </pre>
-           <knob knob-data="data" knob-options="options4"></knob>
-        </div>
-        <div class="demo">
-            <p>&#215; Angle offset and arc</p>
-            <pre>
-data-fgColor="#66CC66"
-data-angleOffset=-125
-data-angleArc=250
-            </pre>
-            <knob knob-data="data" knob-options="options5"></knob>
-        </div>
-        <div class="demo" >
-            <p>&#215; 5-digit values, step 1000</p>
-            <pre>
-data-step="1000"
-data-min="-15000"
-data-max="15000"
-data-displayPrevious=true
-            </pre>
-            <knob knob-data="data" knob-options="options6"></knob>
-        </div>
-        <div style="clear:both"></div>
-        <div style="text-align: center">
-            <p style="font-size: 20px">&#215; Overloaded 'draw' method</p>
-        </div>
-        <div style="background-color: #222; height: 340px">
-            <div class="demo" style="background-color:#222; color:#FFF;">
-                <pre>
-    data-width="75"
-    data-fgColor="#ffec03"
-    data-skin="tron"
-    data-thickness=".2"
-    data-displayPrevious=true
-                </pre>
-              <knob knob-data="data" knob-options="options7"></knob>
-            </div>
-            <div class="demo" style="background-color:#222; color:#FFF;">
-                <pre>
-    data-width="150"
-    data-fgColor="#ffec03"
-    data-skin="tron"
-    data-thickness=".2"
-    data-displayPrevious=true
-                </pre>
-                <knob knob-data="data" knob-options="options8"></knob>
-            </div>
-            <div class="demo" style="background-color:#222; color:#FFF;">
-                <pre>
-    data-width="150"
-    data-fgColor="#C0ffff"
-    data-skin="tron"
-    data-thickness=".1"
-    data-angleOffset="180"
-                </pre>
-               <knob knob-data="data" knob-options="options9"></knob>
-            </div>
-        </div>
-        <div style="clear:both"></div>
-       
-        <div class="demo">
-            <p>&#215; Readonly</p>
-            <pre>
-readonly (or data-readOnly=true)
-data-thickness=".4"
-data-fgColor="chartreuse"
-            </pre>
-           <knob knob-data="data" knob-options="options14"></knob>
-        </div>
-        <div class="demo">
-            <p>&#215; Dynamic</p>
-            <pre>
-data-width="200"
-            </pre>
-            <knob knob-data="data" knob-options="options15"></knob>
-            <pre>
-data-width="50"
-data-cursor=true
-            </pre>
-           <knob knob-data="data" knob-options="options16"></knob>
-        </div>
-         <div style="clear:both"></div>
-        <div style="clear:both"></div>
-        <div style="padding:30px; margin-top:30px;">
-            <p style="font-size:20px;">jQuery Knob is &copy; 2012 Anthony Terrien and dual licensed under the MIT or GPL licenses.</p>
-        </div>
-        </div>
-    </body>
+    <script src="../src/angular-knob.js"></script>
+
+    <script src="js/example.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app='knobApp' ng-controller="exampleCtrl">
+    <div class="knob-example">
+        <knob knob-data="data" knob-options="options"></knob>
+        <div class="data">model value: {{data}}</div>
+    </div>
+</body>
 </html>
