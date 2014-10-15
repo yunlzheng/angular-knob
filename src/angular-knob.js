@@ -1,4 +1,6 @@
 angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) {
+    'use strict';
+
     return {
         restrict: 'EA',
         replace: true,
