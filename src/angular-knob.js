@@ -10,17 +10,12 @@ angular.module('ui.knob', []).directive('knob', function() {
         },
         link: function($scope, $element, $attrs) {
             var knobInit = $scope.knobOptions() || {};
-            knobInit.change = setKnobData;
 
-            function setKnobData (value) {
+            knobInit.release = function(value) {
                 $scope.knobData = knobValue = Math.round(value);
 
                 $scope.$apply();
-            }
-
-            $element.on('change', function(event) {
-                setKnobData(event.target.value);
-            });
+            };
 
             $($element).val($scope.knobData).knob(knobInit);
         }
