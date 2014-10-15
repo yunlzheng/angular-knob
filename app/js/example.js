@@ -10,8 +10,4 @@ angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) 
 		width: 145,
         height: 145
 	};
-
-	$scope.$watch('data', function() {
-		console.log($scope.data);
-	});
 }]);
