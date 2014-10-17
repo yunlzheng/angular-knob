@@ -10,7 +10,7 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
             knobData: '=',
             knobOptions: '&'
         },
-        link: function($scope, $element, $attrs) {
+        link: function($scope, $element) {
             var knobInit = $scope.knobOptions() || {};
 
             knobInit.release = function(newValue) {
