@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular jQuery Knob dev</title>
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery-knob/js/jquery.knob.js"></script>
+
+    <script src="../src/angular-knob.js"></script>
+
+    <script src="js/example.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app='knobApp' ng-controller="exampleCtrl">
+    <div class="wrapper">
+        <knob knob-data="knobData[1].value"></knob>
+        <p>model value: {{knobData[1].value}}</p>
+        <input ng-model="knobData[1].value"/>
+    </div>
+</body>
+</html>
