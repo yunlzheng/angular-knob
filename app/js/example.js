@@ -50,7 +50,7 @@ angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) 
 			    fgColor: "#ffec03",
 			    skin: "tron",
 			    thickness: .2,
-			    displayPrevious: true,
+			    displayPrevious: true
 			}
 		},
 		{
@@ -62,9 +62,17 @@ angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) 
 		}
 	];
 
+    $scope.data = 20;
+    $scope.options = {
+        width: 75,
+        fgColor: "#ffec03",
+        skin: "tron",
+        thickness: .2,
+        displayPrevious: true
+    }
+
 	$scope.formatOptions = function(data) {
 		data.formattedOptions = JSON.stringify(data.options).replace(/,/g,"\n");
-
 		return data;
 	};
 }]);

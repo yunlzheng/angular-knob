@@ -5,7 +5,6 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
         restrict: 'EA',
         replace: true,
         template: '<input value="{{ knobData }}"/>',
-        reuire: 'knobData',
         scope: {
             knobData: '=',
             knobOptions: '&'
@@ -16,7 +15,6 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
             knobInit.release = function(newValue) {
                 $timeout(function() {
                     $scope.knobData = newValue;
-
                     $scope.$apply();
                 });
             };
