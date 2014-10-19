@@ -1,9 +1,9 @@
 {
   "name": "angular-knob",
-  "version": "0.0.2",
-  "homepage": "https://github.com/yunlzheng/angular-knob",
+  "version": "1.0.3",
+  "homepage": "https://github.com/probalazs/angular-knob",
   "authors": [
-    "Moo <yunl.zheng@gmail.com>"
+    "probalazs <probalazs@nyenyere.eu>"
   ],
   "description": "jquery kanb directive",
   "main": "./src/angular-knob.js",

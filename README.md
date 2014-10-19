@@ -9,40 +9,9 @@ jQuery Knob is a
 * touch, mouse and mousewheel, keyboard events implemented.
 * downward compatible ; overloads an input element.
 
-## Install
-
-```
-bower install angular-knob --save
-```
-
 ## Example
 
-```
-angular.module('knobApp', ['ui.knob']);
-
-angular.module('knobApp')
-  .controller('exampleCtrl', ['$scope', function($scope){
-
-    $scope.data = 30;
-
-    $scope.max = 200;
-
-    $scope.knobOptions = {
-      'width':100,
-      'displayInput': false
-    };
-
-  }]);
-```
-
-```
-<body ng-app='knobApp'>
-  <div ng-controller="exampleCtrl">
-      <knob knob-data="data" knob-options="knobOptions"></knob>
-      <knob knob-data="data" knob-max='max' knob-options="knobOptions"></knob>
-  </div>
-</body>
-```
+Check /app folder for examples.
 
 ## Options
 
@@ -69,7 +38,3 @@ UI :
 * font : font family.
 * fontWeight : font weight.
 * bgColor : background color.
-
-## Supported browser
-
-Tested on Chrome, Safari, Firefox, IE 9.0.

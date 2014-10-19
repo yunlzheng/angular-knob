@@ -1,0 +1,27 @@
+body {
+	width: 100%;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+  	text-rendering: optimizelegibility;
+}
+
+.header {
+	font-size: 30px;
+	letter-spacing: -6px;
+	line-height: 40px;
+	padding-left: 40px;
+}
+
+.wrapper {
+	margin: 30px 0px;
+	text-align: center;
+}
+
+.knob-example {
+	width: 33%;
+	display: inline-block;
+	float: left;
+}
