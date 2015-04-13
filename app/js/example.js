@@ -49,6 +49,9 @@ angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) 
 				width: 75,
 			    fgColor: "#ffec03",
 			    skin: "tron",
+                draw: function() {
+                    console.log("I haven't been overridden!");
+                },
 			    thickness: .2,
 			    displayPrevious: true
 			}
