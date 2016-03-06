@@ -1,10 +1,7 @@
 {
   "name": "angular-knob",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "homepage": "https://github.com/probalazs/angular-knob",
-  "authors": [
-    "probalazs <probalazs@nyenyere.eu>"
-  ],
   "description": "jquery kanb directive",
   "main": "./src/angular-knob.js",
   "keywords": [
@@ -15,15 +12,13 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
     "app/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
     "angular": "~1.x",
-    "jquery": "~2.0.3",
-    "jquery-knob": "~1.2.3"
+    "jquery": "~2.2.x",
+    "jquery-knob": "~1.2.x"
   }
 }
