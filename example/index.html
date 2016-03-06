@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular jQuery Knob Example</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/src/angular-knob.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/example.ctrl.js"></script>
+</head>
+<body ng-app='app' ng-controller="ExampleCtrl as example">
+    <header class="header">
+        <h1>Angular jQuery Knob Example</h1>
+    </header>
+
+    <div class="wrapper">
+        <div class="knob-example">
+            <div>model value: <input ng-model="example.value"></div>
+            <pre class="data">{{ example.getFormattedOptions() }}</pre>
+            <knob knob-data="example.value" knob-options="example.options"></knob>
+        </div>
+    </div>
+</body>
+</html>
