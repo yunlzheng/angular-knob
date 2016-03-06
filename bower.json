@@ -2,7 +2,7 @@
   "name": "angular-knob",
   "version": "1.0.0",
   "homepage": "https://github.com/probalazs/angular-knob",
-  "description": "jquery kanb directive",
+  "description": "jquery knob directive",
   "main": "./src/angular-knob.js",
   "keywords": [
     "jquery",
