@@ -1,12 +1,12 @@
 {
   "name": "angular-knob",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/probalazs/angular-knob",
   "description": "jquery knob directive",
-  "main": "./src/angular-knob.js",
+  "main": "./src/angular-knob.min.js",
   "keywords": [
     "jquery",
-    "kanb",
+    "knob",
     "processbar"
   ],
   "license": "MIT",
