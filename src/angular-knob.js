@@ -39,15 +39,13 @@
 
 		function getKnobInit(scope) {
 			var init = scope.knobOptions() || {};
-			init.release = release;
+			init.release = function(newValue) {
+				$timeout(function() {
+					scope.knobData = newValue;
+					scope.$apply();
+				});
+			};
 			return init;
-		}
-
-		function release(newValue) {
-			$timeout(function() {
-				scope.knobData = newValue;
-				scope.$apply();
-			});
 		}
 	}
 })();
