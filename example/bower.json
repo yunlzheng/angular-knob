@@ -1,0 +1,8 @@
+{
+  "name": "angular-knob example",
+  "version": "1.1.0",
+  "license": "MIT",
+  "dependencies": {
+    "angular-knob": "probalazs/angular-knob"
+  }
+}

@@ -8,10 +8,7 @@ body {
   	text-rendering: optimizelegibility;
 }
 
-.header {
-	font-size: 30px;
-	letter-spacing: -6px;
-	line-height: 40px;
+header {
 	padding-left: 40px;
 }
 
@@ -21,7 +18,5 @@ body {
 }
 
 .knob-example {
-	width: 33%;
-	display: inline-block;
-	float: left;
+	margin: auto
 }

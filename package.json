@@ -1,0 +1,12 @@
+{
+  "name": "angular-knob",
+  "version": "1.0.1",
+  "description": "jquery knob directive",
+  "main": "Gruntfile.js",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest"
+  }
+}

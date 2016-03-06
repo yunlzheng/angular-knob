@@ -1,31 +1,51 @@
-angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) {
+(function() {
     'use strict';
 
-    return {
-        restrict: 'EA',
-        replace: true,
-        template: '<input value="{{ knobData }}"/>',
-        scope: {
-            knobData: '=',
-            knobOptions: '&'
-        },
-        link: function($scope, $element) {
-            var knobInit = $scope.knobOptions() || {};
+    angular
+        .module('ui.knob', [])
+        .directive('knob', knob);
 
-            knobInit.release = function(newValue) {
+    knob.$inject = [
+        '$timeout'
+    ];
+
+    function knob($timeout) {
+        var directive = {
+            template: '<input ng-model="knobData" ng-value="knobData"/>',
+            scope: { knobData: '=', knobOptions: '&' },
+            link: link
+        };
+
+        return directive;
+
+        function link(scope, element) {
+            var knobInit = getKnobInit(scope);
+            element
+                .val(scope.knobData)
+                .knob(knobInit);
+
+            scope.$watch('knobData', function(newValue, oldValue) {
+                knobDataChangeEventHandler(newValue, oldValue, element);
+            });
+        }
+
+        function knobDataChangeEventHandler(newValue, oldValue, element) {
+            if (newValue !== oldValue) {
+                element
+                    .val(newValue)
+                    .change();
+            }
+        }
+
+        function getKnobInit(scope) {
+            var init = scope.knobOptions() || {};
+            init.release = function(newValue) {
                 $timeout(function() {
-                    $scope.knobData = newValue;
-                    $scope.$apply();
+                    scope.knobData = newValue;
+                    scope.$apply();
                 });
             };
-
-            $scope.$watch('knobData', function(newValue, oldValue) {
-                if (newValue != oldValue) {
-                    $($element).val(newValue).change();
-                }
-            });
-
-            $($element).val($scope.knobData).knob(knobInit);
+            return init;
         }
-    };
-}]);
+    }
+})();
