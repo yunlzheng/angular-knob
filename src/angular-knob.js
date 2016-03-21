@@ -11,16 +11,17 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
         },
         link: function($scope, $element) {
             var knobInit = $scope.knobOptions() || {};
-
+            var _value;
             knobInit.release = function(newValue) {
                 $timeout(function() {
                     $scope.knobData = newValue;
-                    $scope.$apply();
+                    _value = newValue;
+                    // $scope.$apply();
                 });
             };
 
             $scope.$watch('knobData', function(newValue, oldValue) {
-                if (newValue != oldValue) {
+                if (newValue != oldValue && newValue != _value) {
                     $($element).val(newValue).change();
                 }
             });
