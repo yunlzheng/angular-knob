@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "angular": "~1.x",
-    "jquery": "~2.0.3",
+    "jquery": "~2.2.4",
     "jquery-knob": "~1.2.3"
   }
 }
