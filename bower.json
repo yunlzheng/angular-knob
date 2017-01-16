@@ -6,7 +6,7 @@
     "probalazs <probalazs@nyenyere.eu>"
   ],
   "description": "jquery kanb directive",
-  "main": "./src/angular-knob.js",
+  "main": "src/angular-knob.js",
   "keywords": [
     "jquery",
     "kanb",
