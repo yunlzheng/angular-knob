@@ -1,4 +1,6 @@
-angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) {
+angular
+  .module('ui.knob', [])
+  .directive('knob', ['$timeout', function($timeout) {
     'use strict';
 
     return {
@@ -10,9 +12,10 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
             knobOptions: '&'
         },
         link: function($scope, $element) {
-            var knobInit = $scope.knobOptions() || {};
-            var _value;
-            knobInit.release = function(newValue) {
+            var knobInit = $scope.knobOptions() || {},
+	        _value;
+            
+	        knobInit.release = function(newValue) {
                 $timeout(function() {
                     $scope.knobData = newValue;
                     _value = newValue;

@@ -1,8 +1,8 @@
-angular.module('knobApp', [
+angular
+  .module('knobApp', [
 	'ui.knob'
-]);
-
-angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) {
+  ])
+  .controller('exampleCtrl', ['$scope', function($scope) {
 	$scope.knobData = [
 		{
 			value: 30,
@@ -67,7 +67,7 @@ angular.module('knobApp').controller('exampleCtrl', ['$scope', function($scope) 
         width: 75,
         fgColor: "#ffec03",
         skin: "tron",
-        thickness: .2,
+        thickness: .1,
         displayPrevious: true
     }
 
