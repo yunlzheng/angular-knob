@@ -1,14 +1,14 @@
 {
   "name": "angular-knob",
   "version": "0.0.3",
-  "homepage": "https://github.com/probalazs/angular-knob",
+  "homepage": "https://github.com/yunlzheng/angular-knob",
   "authors": [
     "probalazs <probalazs@nyenyere.eu>"
   ],
-  "description": "jquery kanb directive",
+  "description": "jQuery kanb directive",
   "main": "./src/angular-knob.js",
   "keywords": [
-    "jquery",
+    "jQuery",
     "kanb",
     "processbar"
   ],
