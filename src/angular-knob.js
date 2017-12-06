@@ -7,10 +7,10 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
         template: '<input value="{{ knobData }}"/>',
         scope: {
             knobData: '=',
-            knobOptions: '&'
+            knobOptions: '='
         },
         link: function($scope, $element) {
-            var knobInit = $scope.knobOptions() || {};
+            var knobInit = $scope.knobOptions || {};
             var _value;
             knobInit.release = function(newValue) {
                 $timeout(function() {
@@ -19,6 +19,12 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
                     // $scope.$apply();
                 });
             };
+
+            $scope.$watch('knobOptions', function(newValue, oldValue) {
+                if (newValue != oldValue && newValue != _value) {
+                    $($element).trigger('configure', newValue);
+                }
+            });
 
             $scope.$watch('knobData', function(newValue, oldValue) {
                 if (newValue != oldValue && newValue != _value) {
