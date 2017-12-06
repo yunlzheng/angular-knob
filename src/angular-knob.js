@@ -21,7 +21,7 @@ angular.module('ui.knob', []).directive('knob', ['$timeout', function($timeout) 
             };
 
             $scope.$watch('knobOptions', function(newValue, oldValue) {
-                if (newValue != oldValue && newValue != _value) {
+                if (!angular.equals(newValue, oldValue) && !angular.equals(newValue, _value)) {
                     $($element).trigger('configure', newValue);
                 }
             });
